@@ -1,0 +1,8 @@
+# Dossiers
+env/
+
+# Fichiers
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
