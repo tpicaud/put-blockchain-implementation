@@ -82,6 +82,8 @@ class Blockchain:
         print("| Timestamp: ", timestamp)
         print("| Transactions:")
 
+        if len(transactions) == 0:
+            print("|        No transactions")
         # Détails des transactions
         for transaction in transactions:
             print("|  Sender: ", transaction.sender)
