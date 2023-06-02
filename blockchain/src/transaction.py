@@ -20,7 +20,7 @@ class Transaction:
 
         try:
             data = self.sender.encode() + self.recipient.encode() + str(self.amount).encode()
-            public_key.verify(signature_in_bytes, data.encode())
+            public_key.verify(signature_in_bytes, data)
         except:
             return False
         return True

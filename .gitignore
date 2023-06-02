@@ -1,5 +1,6 @@
 # Dossiers
-env/
+blockchain_env/
+.vscode/
 
 # Fichiers
 *.pyc

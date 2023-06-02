@@ -1,6 +1,6 @@
-from typing import List
 import hashlib
 
+from typing import List
 from transaction import Transaction
 
 class Block:
@@ -10,7 +10,7 @@ class Block:
         self.transactions = transactions
         self.previous_hash = previous_hash
         self.nonce = 0
-        self.hash = self.calculateHash(self)
+        self.hash = self.calculateHash()
 
     def calculateHash(self) -> str:
         ## Calculate the hash of the block
@@ -22,6 +22,7 @@ class Block:
         while self.hash[0:difficulty] != target:
             self.nonce += 1
             self.hash = self.calculateHash()
+        
 
     def hasValidTransactions(self) -> bool:
         ## Check if all transactions in the block are valid
