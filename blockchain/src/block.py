@@ -7,7 +7,7 @@ class Block:
     def __init__(self, index: int, timestamp: int, transactions: List[Transaction], previous_hash:str) :
         self.index = index
         self.timestamp = timestamp
-        self.transactions = transactions
+        self.transactions = transactions.copy() # Copy the list of transactions to avoid deletion by reference
         self.previous_hash = previous_hash
         self.nonce = 0
         self.hash = self.calculateHash()
