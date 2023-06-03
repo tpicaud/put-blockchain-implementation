@@ -13,12 +13,12 @@ class Transaction:
         self.signature = signature
     
     def isValid(self) -> bool:
-        sender_public_key = bytes.fromhex(self.sender)
-        signature_in_bytes = bytes.fromhex(self.signature)
-
-        public_key = ed25519.Ed25519PublicKey.from_public_bytes(sender_public_key)
-
         try:
+            sender_public_key = bytes.fromhex(self.sender)
+            signature_in_bytes = bytes.fromhex(self.signature)
+
+            public_key = ed25519.Ed25519PublicKey.from_public_bytes(sender_public_key)
+
             data = self.sender.encode() + self.recipient.encode() + str(self.amount).encode()
             public_key.verify(signature_in_bytes, data)
         except:
