@@ -35,6 +35,8 @@ def printBlock(block) -> None:
     # Informations du bloc
     print("| Block #", block_number)
     print("| Timestamp: ", timestamp)
+    print("| Previous hash: ", previous_hash)
+
     print("| Transactions:")
 
     if len(transactions) == 0:
@@ -47,7 +49,6 @@ def printBlock(block) -> None:
         print("|  Signature: ", transaction.signature)
 
     # Autres informations du bloc
-    print("| Previous hash: ", previous_hash)
     print("| Nonce: ", nonce)
     print("| Hash: ", block_hash)
 
