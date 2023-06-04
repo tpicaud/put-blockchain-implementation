@@ -20,7 +20,7 @@ Simply run ```python3 blockchain/main.py``` in a separate terminal.
 
 ## 3. Run the wallet
 
-Simply run ```python3 wallet/main.py``` in a separate terminal. The wallet is provided with a CLI that you can use to interact with the blockchain. The commands are the following :
+Simply run ```python3 wallet/main.py``` in a separate terminal. The wallet provides a CLI that you can use to interact with the blockchain. The commands are the following :
 - ```help```
     See commands
 - ```create```  
