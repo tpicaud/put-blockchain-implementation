@@ -6,8 +6,10 @@ class MemPool:
         self.pending_transactions = []
         
     def addTransaction(self, transaction: Transaction) -> None:
-        ## Add a transaction to the mempool
-        self.pending_transactions.append(transaction)
+        ## Check if the mempool is full
+        if len(self.pending_transactions) < 10000:
+            ## Add a transaction to the mempool
+            self.pending_transactions.append(transaction)
 
     def getTransactions(self) -> list:
         ## Return the list of transactions in the mempool
