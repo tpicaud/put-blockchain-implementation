@@ -28,6 +28,7 @@ class Cli:
             if command == "help":
                 print("create                      -> Create a new wallet")
                 print("send <amount> <address>     -> Send a transaction")
+                print("balance <address>?          -> Get balance of an address")
                 continue
 
             ## Get balance
