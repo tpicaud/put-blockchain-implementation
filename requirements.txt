@@ -3,3 +3,4 @@
 requests==2.31.0
 cryptography==40.0.2
 Flask
+colorama
