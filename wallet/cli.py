@@ -1,7 +1,7 @@
 import re
 import colorama
 
-from colorama import Fore
+from colorama import Fore, Style
 
 class Cli:
     def __init__(self, client):
@@ -19,7 +19,7 @@ class Cli:
         print("Starting client... \n")
         colorama.init()
         while True:
-            command = input(Fore.GREEN + "Client#  " + Fore.RESET)
+            command = input(Style.BRIGHT + Fore.GREEN + "Client#  " + Style.RESET_ALL + Fore.RESET)
 
             ## Parsing the input
             if command == "exit":

@@ -12,7 +12,6 @@ class Wallet:
         
 
     def generate_key_pair(self):
-        print("Generating key pair...")
         private_key = ed25519.Ed25519PrivateKey.generate()
         self.private_key = private_key
         self.public_key = private_key.public_key()
@@ -20,8 +19,6 @@ class Wallet:
                 encoding=serialization.Encoding.Raw,
                 format=serialization.PublicFormat.Raw
             ).hex()
-        print("Key pair generated successfully!")
-        print("Public key: " + self.public_key_hex)
 
     # def save_private_key(self, password):
     #     encrypted_key = self.private_key.private_bytes(

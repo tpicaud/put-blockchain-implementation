@@ -26,10 +26,17 @@ class Blockchain:
 
             ## Remove invalid transactions
             valid_transactions = []
+            sender_balances = {}
             for transaction in transactions:
-                if transaction.isValid() and self.get_balance(transaction.sender) >= transaction.amount:
-                    valid_transactions.append(transaction)
-            
+                sender = transaction.sender
+                if transaction.isValid() and self.get_balance(sender) >= transaction.amount:
+                    if sender in sender_balances:
+                        sender_balances[sender] += transaction.amount
+                    else:
+                        sender_balances[sender] = transaction.amount
+                    if sender_balances[sender] <= self.get_balance(sender):
+                        valid_transactions.append(transaction)   
+
             ## Create new block
             block = Block(previous_block.index + 1, self.get_current_timestamp(), valid_transactions, previous_block.hash)
             block.mineBlock(self.difficulty)
