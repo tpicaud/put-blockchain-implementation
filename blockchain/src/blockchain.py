@@ -58,8 +58,7 @@ class Blockchain:
     def receiveTransaction(self, transaction: Transaction) -> None:
         self.mem_pool.addTransaction(transaction)
     
-    def get_balance(self, address: str) -> int:
-        
+    def get_balance(self, address: str) -> float:
         balance = 5 # Initial balance to facilitate testing
         for block in self.chain:
             for transaction in block.transactions:
