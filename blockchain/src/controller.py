@@ -28,7 +28,7 @@ class Controller:
         except Exception as e:
             return jsonify({'message': 'Invalid transaction format.'}), 400
         
-    def getBalance(self, address):
+    def get_balance(self, address):
         try:
             balance = self.blockchain.get_balance(address)
             return jsonify({'balance': balance}), 200
