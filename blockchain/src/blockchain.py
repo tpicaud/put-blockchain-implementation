@@ -15,6 +15,7 @@ class Blockchain:
         self.mem_pool = mem_pool
 
     def addBlock(self, transactions: List[Transaction]) -> List[Transaction]:
+        transactions = transactions.copy()
         if len(self.chain) == 0:
             # Genesis block
             previous_hash = "0"
