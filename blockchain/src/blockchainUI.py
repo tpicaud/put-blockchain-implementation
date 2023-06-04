@@ -43,10 +43,11 @@ def printBlock(block) -> None:
         print("|        No transactions")
     # Détails des transactions
     for transaction in transactions:
-        print("|  Sender: ", transaction.sender)
-        print("|  Recipient: ", transaction.recipient)
-        print("|  Amount: ", transaction.amount)
-        print("|  Signature: ", transaction.signature)
+        print("|      Sender: ", transaction.sender)
+        print("|      Recipient: ", transaction.recipient)
+        print("|      Amount: ", transaction.amount)
+        print("|      Signature: ", transaction.signature+"\n")
+
 
     # Autres informations du bloc
     print("| Nonce: ", nonce)
@@ -54,7 +55,7 @@ def printBlock(block) -> None:
 
     # Délimiteur inférieur du bloc
     print("―" * (max_length + 4))
-    time.sleep(0.5)
+    time.sleep(3)
     print("                                   |")
     time.sleep(0.5)
     print("                                   |")
