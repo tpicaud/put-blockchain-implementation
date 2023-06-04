@@ -27,7 +27,7 @@ class Blockchain:
             ## Remove invalid transactions
             valid_transactions = []
             for transaction in transactions:
-                if transaction.isValid():
+                if transaction.isValid() and self.get_balance(transaction.sender) >= transaction.amount:
                     valid_transactions.append(transaction)
             
             ## Create new block
@@ -58,6 +58,18 @@ class Blockchain:
     def receiveTransaction(self, transaction: Transaction) -> None:
         self.mem_pool.addTransaction(transaction)
     
+    def get_balance(self, address: str) -> int:
+        
+        balance = 5 # Initial balance to facilitate testing
+        for block in self.chain:
+            for transaction in block.transactions:
+                if transaction.sender == address:
+                    balance -= transaction.amount
+                elif transaction.recipient == address:
+                    balance += transaction.amount
+        return balance
+
+
     def start(self) -> None:
 
         ## Start controller in a separate thread
