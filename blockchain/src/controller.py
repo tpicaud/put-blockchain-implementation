@@ -11,7 +11,7 @@ class Controller:
     def register_routes(self):
         # Endpoint for receiving new transactions
         self.app.route('/transactions/new', methods=['POST'])(self.receive_transaction)
-        self.app.route('/balance/<address>', methods=['GET'])(self.getBalance)
+        self.app.route('/balance/<address>', methods=['GET'])(self.get_balance)
 
     def receive_transaction(self):
         try:
@@ -37,4 +37,10 @@ class Controller:
     
 
     def run(self):
+        ## Disable logs
+        import logging
+        log = logging.getLogger('werkzeug')
+        log.setLevel(logging.ERROR)
+
+        ## Run the app
         self.app.run()
