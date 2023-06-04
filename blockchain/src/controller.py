@@ -11,6 +11,7 @@ class Controller:
     def register_routes(self):
         # Endpoint for receiving new transactions
         self.app.route('/transactions/new', methods=['POST'])(self.receive_transaction)
+        self.app.route('/balance/<address>', methods=['GET'])(self.getBalance)
 
     def receive_transaction(self):
         try:
@@ -24,8 +25,16 @@ class Controller:
             self.blockchain.receiveTransaction(transaction)
 
             return jsonify({'message': 'Transaction received and sent to mempool.'}), 200
-        except:
+        except Exception as e:
             return jsonify({'message': 'Invalid transaction format.'}), 400
         
+    def getBalance(self, address):
+        try:
+            balance = self.blockchain.get_balance(address)
+            return jsonify({'balance': balance}), 200
+        except:
+            return jsonify({'message': 'Invalid address format.'}), 400
+    
+
     def run(self):
         self.app.run()
