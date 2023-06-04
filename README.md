@@ -30,3 +30,9 @@ Send a transaction
 - ```exit```
 
 ### ***Important note: each account has a base amount of 5 coins***
+
+## 4. Additional information
+
+- Valid addresses are only 64 hex characters
+- Wallet key-pair is lost when exiting the application
+- For testing, create two or more wallets in separated terminals and send coins between their addresses
