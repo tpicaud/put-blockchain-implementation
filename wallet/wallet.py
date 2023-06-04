@@ -9,6 +9,7 @@ class Wallet:
         self.private_key = None
         self.public_key = None
         self.public_key_hex = None
+        
 
     def generate_key_pair(self):
         print("Generating key pair...")
@@ -22,21 +23,29 @@ class Wallet:
         print("Key pair generated successfully!")
         print("Public key: " + self.public_key_hex)
 
-    def save_private_key(self, password):
-        encrypted_key = self.private_key.private_bytes(
-            encoding=serialization.Encoding.PEM,
-            format=serialization.PrivateFormat.PKCS8,
-            encryption_algorithm=serialization.BestAvailableEncryption(password.encode())
-        )
-        # Enregistrer encrypted_key dans un fichier sécurisé
+    # def save_private_key(self, password):
+    #     encrypted_key = self.private_key.private_bytes(
+    #         encoding=serialization.Encoding.PEM,
+    #         format=serialization.PrivateFormat.PKCS8,
+    #         encryption_algorithm=serialization.BestAvailableEncryption(password.encode())
+    #     )
+    #     # Enregistrer encrypted_key dans un fichier sécurisé
+    #     file_path = "wallet/encrypted_key.pem"
+    #     with open(file_path, "wb") as file:
+    #         file.write(encrypted_key)
 
-    def load_private_key(self, password):
-        # Charger encrypted_key à partir du fichier sécurisé
-        self.private_key = serialization.load_pem_private_key(
-            encrypted_key,
-            password=password.encode()
-        )
-        self.public_key = self.private_key.public_key()
+
+    # def load_private_key(self, password):
+    #     # Charger encrypted_key à partir du fichier sécurisé
+    #     file_path = "wallet/encrypted_key.pem"
+    #     with open(file_path, "rb") as file:
+    #         encrypted_key = file.read()
+
+    #     self.private_key = serialization.load_pem_private_key(
+    #         encrypted_key,
+    #         password=password.encode()
+    #     )
+    #     self.public_key = self.private_key.public_key()
 
     def get_public_key(self):
         return self.public_key
