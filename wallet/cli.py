@@ -16,8 +16,8 @@ class Cli:
 
 
     def startCLI(self):
-        print("Starting client... \n")
-        print("Type 'help' for a list of commands.")
+        print("Starting client... ")
+        print("Type 'help' for a list of commands. \n")
         colorama.init()
         while True:
             command = input(Style.BRIGHT + Fore.GREEN + "Client#  " + Style.RESET_ALL + Fore.RESET)
